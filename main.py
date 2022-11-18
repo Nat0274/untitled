@@ -1,13 +1,15 @@
-def on_button_pressed_a():
-    basic.show_leds("""
-    . # . # .
-    . # . # .
-    . . . . .
-    . # # # .
-    # . . . #
-    """)
-    input.on_button_pressed(Button.A, on_button_pressed_a)
-    def on_button_pressed_a2():
+def on_forever():   
+    def on_pin_pressed_p0():
+    
+        basic.show_leds("""
+        . # . # .
+        . # . # .
+        . . . . .
+        . # # # .
+        # . . . #
+        """)
+    input.on_pin_pressed(TouchPin.P0, on_pin_pressed_p0)
+    def on_gesture_shake2():
         basic.show_leds("""
         . # . # .
         . # . # .
@@ -15,4 +17,5 @@ def on_button_pressed_a():
         # . . . #
         . # # # .
         """)
-        input.on_button_pressed(on_button_pressed_b, on_button_pressed_a2)
+    input.on_gesture(Gesture.SHAKE, on_gesture_shake2)    
+basic.forever(on_forever)
